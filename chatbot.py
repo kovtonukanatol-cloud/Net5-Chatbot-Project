@@ -1,88 +1,72 @@
 import tkinter as tk
 from tkinter import scrolledtext
 
-# --- SUPPORT RESPONSES ---
-# Simple dictionary with keywords
+# --- TASK 1: KNOWLEDGE BASE (Franklin) ---
+# Franklin: Add more ThinkPad-related keywords and answers below.
+# Use the format: "keyword": "Your detailed support answer",
 answers = {
-    "battery": "ThinkPad batteries usually last 3-5 years. Try to calibrate it: charge to 100%, then discharge to 0%.",
-    "screen": "Check brightness settings first. If it flickers, try updating the GPU drivers.",
-    "wifi": "Toggle Airplane Mode on/off. If that fails, reinstall the network drivers.",
-    "slow": "Open Task Manager (Ctrl+Shift+Esc) to see which process uses the most CPU/RAM.",
-    "bsod": "A Blue Screen is usually a driver issue. Write down the error code and search for it online.",
-    "keyboard": "If keys are sticking, try cleaning them with compressed air.",
-    "ram": "ThinkPad T-series supports up to 32GB RAM. Make sure the stick is fully clicked into the slot.",
     "hello": "Hi! I'm the ThinkPad Support Bot. How can I help you today?",
-    "hi": "Hi! I'm the ThinkPad Support Bot. How can I help you today?",
-    "help": "I can help with: battery, screen, wifi, slow PC, bsod, keyboard, or ram.",
-    "bye": "Goodbye! Hope your ThinkPad works perfectly.",
-    "thanks": "You're welcome! Happy to help.",
+    "battery": "ThinkPad batteries usually last 3-5 years. Try to calibrate it in Lenovo Vantage.",
+    "wifi": "Toggle Airplane Mode on/off or reinstall the network drivers.",
+    "help": "I can help with: battery, wifi, screen, slow PC, or ram. What's the issue?",
+    # TODO: Franklin - Add at least 10-15 more tech support pairs here
 }
 
 def get_response(msg):
-    # Loop through keys to find a match in the user's message
+    """Search for keywords in the user message."""
     for key in answers:
         if key in msg:
             return answers[key]
-    return "I'm not sure about that. Try asking about battery, wifi, ram, or type 'help'."
+    return "I'm not sure about that. Try asking about battery, wifi, or type 'help'."
 
 # --- TASK 2: INPUT HANDLING (Anatolii K.) ---
 def clean_input(text):
-    # Basic cleaning: remove extra spaces and make lowercase
+    """Clean the user input to prevent errors."""
     if not text:
         return ""
-    
-    cleaned = text.strip().lower()
-    return cleaned
+    return text.strip().lower()
 
 # --- GUI LOGIC ---
 def send_message():
     raw_text = input_field.get()
     clean_text = clean_input(raw_text)
 
-    # Check if input is empty after cleaning
     if clean_text == "":
-        chat_box.config(state=tk.NORMAL)
-        chat_box.insert(tk.END, "System: Please enter a message!\n\n")
-        chat_box.config(state=tk.DISABLED)
         return
 
-    # Get answer from Task 1 logic
     bot_answer = get_response(clean_text)
 
-    # Update chat window
     chat_box.config(state=tk.NORMAL)
-    chat_box.insert(tk.END, "You: " + raw_text + "\n")
-    chat_box.insert(tk.END, "Bot: " + bot_answer + "\n\n")
+    chat_box.insert(tk.END, f"You: {raw_text}\n")
+    chat_box.insert(tk.END, f"Bot: {bot_answer}\n\n")
     chat_box.config(state=tk.DISABLED)
     
-    # Scroll to bottom and clear input
     chat_box.see(tk.END)
     input_field.delete(0, tk.END)
 
+# --- TASK 3: GUI DESIGN (Caolan) ---
 def run_app():
     global chat_box, input_field
 
     window = tk.Tk()
-    window.title("ThinkPad Support Bot - Student: A. Kovtoniuk")
-    window.geometry("500x400")
-
-    # Simple Header
+    window.title("ThinkPad Support Bot - Team Project")
+    window.geometry("500x450")
+    
+    # TODO: Caolan - Improve the UI styling below (colors, fonts, padding)
+    
     header = tk.Label(window, text="ThinkPad Technical Support", font=("Arial", 12, "bold"))
-    header.pack(pady=5)
+    header.pack(pady=10)
 
-    # Chat Display
     chat_box = scrolledtext.ScrolledText(window, width=55, height=15, state=tk.DISABLED)
-    chat_box.pack(padx=10, pady=10)
+    chat_box.pack(padx=15, pady=5)
 
-    # Input Field
     input_field = tk.Entry(window, width=40)
-    input_field.pack(side=tk.LEFT, padx=10, pady=10)
-    input_field.focus() # set focus so user can type immediately
+    input_field.pack(side=tk.LEFT, padx=15, pady=20)
+    input_field.focus()
     input_field.bind("<Return>", lambda e: send_message())
 
-    # Send Button
     btn = tk.Button(window, text="Send", command=send_message, width=10)
-    btn.pack(side=tk.LEFT, padx=5)
+    btn.pack(side=tk.LEFT, pady=20)
 
     window.mainloop()
 
