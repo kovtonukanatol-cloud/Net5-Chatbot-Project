@@ -62,7 +62,7 @@ response_dict = {
 
 "help": "I can help with: battery, screen, wifi, slow PC, blue screen, keyboard, RAM, storage, or fan issues.",
 
-"bye": "Goodbye! Hope your ThinkPad is working great. 😊",
+"bye": "Goodbye! Hope your ThinkPad is working great. ",
 
 "thanks": "No problem at all! Feel free to ask if anything else comes up.",
 
