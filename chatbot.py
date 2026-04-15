@@ -10,8 +10,19 @@ answers = {
     "wifi": "Toggle Airplane Mode on/off or reinstall the network drivers.",
     "help": "I can help with: battery, wifi, screen, slow PC, or ram. What's the issue?",
     # TODO: Franklin - Add at least 10-15 more tech support pairs here
-}
-
+}"camera": "check the permisions in setting"
+"usb": try another port or restart"
+"app":Update or reinstall the application"
+"Heat" clear vents and avoid soft syrfaces."
+"fan": "close heavy apps. devices may be overheating "
+"dns":" flush dns. or use Google dns"
+"AUdio":check volume and output dvice"
+"Ip":"Release and renew ip using ipconfig commands."
+"malwae":Verify credentials or reset password
+"boot": " check BIos boot ordeer and startup devices."
+"password": click forgot password ' and follow the steps sent to your"
+"bluetooth": "turn off/on and  reconnect.",
+"driver": "update  drivers  using  lenovo  vantage",
 def get_response(msg):
     """Search for keywords in the user message."""
     for key in answers:
