@@ -10,19 +10,37 @@ answers = {
     "wifi": "Toggle Airplane Mode on/off or reinstall the network drivers.",
     "help": "I can help with: battery, wifi, screen, slow PC, or ram. What's the issue?",
     # TODO: Franklin - Add at least 10-15 more tech support pairs here
-}"camera": "check the permisions in setting"
-"usb": try another port or restart"
-"app":Update or reinstall the application"
-"Heat" clear vents and avoid soft syrfaces."
-"fan": "close heavy apps. devices may be overheating "
-"dns":" flush dns. or use Google dns"
-"AUdio":check volume and output dvice"
-"Ip":"Release and renew ip using ipconfig commands."
-"malwae":Verify credentials or reset password
-"boot": " check BIos boot ordeer and startup devices."
-"password": click forgot password ' and follow the steps sent to your"
-"bluetooth": "turn off/on and  reconnect.",
-"driver": "update  drivers  using  lenovo  vantage",
+}"password": "Click 'Forgot Password' and follow the steps sent to your email."
+    "wifi": "Restart WiFi or router. Check airplane mode."
+    "slow": "Close apps and restart. Check Task Manager."
+    "bsod": "Restart. If it continues, update drivers."
+    "battery": "Check Lenovo   Vantage for battery health and limits."
+    "charge": "Check charger and power port."
+    "driver": "Update drivers using Lenovo Vantage."
+    "vantage": "Use it for updates and system checks."
+    "heat": "Clear vents and avoid soft surfaces."
+    "fan": "Close heavy apps. Device may be overheating."
+    "screen": "Restart or test with external display."
+    "keyboard": "Reconnect or update drivers."
+    "touchpad": "Enable with Fn key or settings."
+    "usb": "Try another port or restart."
+    "audio": "Check volume and output device."
+    "camera": "Check permissions in settings."
+    "bluetooth": "Turn off/on and reconnect."
+    "update": "Install updates in settings or Vantage.",
+    "storage": "Delete unused files or apps.",
+    "reset": "Use Windows reset in settings.",
+    "printer": "Check connection, restart printer, and install driver.",
+    "network": "Restart router and run network troubleshooter.",
+    "dns": "Flush DNS or use Google DNS ,
+    "ip": "Release and renew IP using ipconfig commands.",
+    "login": "Verify credentials or reset password.",
+    "vpn": "Reconnect VPN or check settings.",
+    "malware": "Run a full antivirus scan.",
+    "disk": "Run disk cleanup and check disk health.",
+    "boot": "Check BIOS boot order and startup devices.",
+    "app": "Update or reinstall the application."
+}
 def get_response(msg):
     """Search for keywords in the user message."""
     for key in answers:
